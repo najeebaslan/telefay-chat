@@ -1,135 +1,179 @@
+# ![App Logo](assets/icons/flutter_launcher_icons.png)
 
-# Details Telefay Application
-* One-on-one and group chat: You can chat with one person at a time, or you can create a group chat to chat with multiple people at the same time.
+# Telefay Chat System
 
-* Text messaging: You can send text messages to other users of the chat application.
+---
 
-* File sharing: You can share photos, videos, and other files with other users of the chat application.
+## Overview
+> Telefay is a modern, secure, and feature-rich chat application designed for seamless real-time communication. Built with Flutter, it supports group and individual messaging, media sharing, and robust authentication. The app is optimized for performance and user experience across platforms.
 
-* Security: encryption all messages between sender and recipient .
+---
 
-![](https://img.shields.io/badge/build-1.0.0+1-brightgreen)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+## Description
+- Telefay enables users to connect, chat, and share media in real time.
+- It offers secure authentication, group management, and a beautiful, responsive UI.
+- Designed for scalability, reliability, and ease of use on both Android and iOS.
 
-### Platform Support
-| Android | iOS |
-| :-----: | :-: |
-|   ✔️    | ✔️  |
-### Table of contents
-- [System requirements](#system-requirements)
-- [Check the UI of the entire app](#app-navigations)
-- [Application structure](#project-structure)
-- [How to format your code?](#how-you-can-do-code-formatting)
-- [How you can improve code readability?](#how-you-can-improve-the-readability-of-code)
-- [Libraries and tools used](#libraries-and-tools-used)
-- [Support](#support)
+---
 
-git push origin development
-### System requirements
+## App Logo
+<p align="center">
+  <img src="assets/icons/flutter_launcher_icons.png" alt="Telefay Logo" width="120"/>
+</p>
 
-Dart SDK Version 3.0.6 or greater.
-Flutter SDK Version 3.10.6 or greater.
+---
 
-### Figma design guidelines for better UI accuracy
+## What Does This App Do? (Step by Step)
+1. **User Onboarding:** New users register and verify their phone number.
+2. **Profile Setup:** Users set up their profile with a name and image.
+3. **Authentication:** Secure login and session management.
+4. **Chat:** Start individual or group chats, send messages, images, and files.
+5. **Group Management:** Create, join, or manage groups with admin controls.
+6. **Notifications:** Receive real-time push notifications for new messages.
+7. **Settings:** Customize preferences and manage account security.
 
+---
 
-### Check the UI of the entire app
+## Key Features
+- 🔒 Secure Authentication (Phone number verification)
+- 💬 Real-time Messaging (Individual & Group)
+- 📎 Media & File Sharing
+- 🛡️ Group Admin Controls
+- 🌐 Multi-language Support
+- 📱 Responsive UI for all devices
+- 🔔 Push Notifications
+- 🕵️‍♂️ End-to-End Encryption
 
-Check the UI of all the app screens from a single place by setting up the 'initialRoute'  to AppNavigation in the AppRoutes.dart file.
+---
 
-### Application structure
+## Core Technical Features
+- Firebase Authentication & Messaging
+- Bloc State Management
+- Hive Local Database
+- Sentry Error Tracking
+- Custom Theming & Responsive Design
+- Modular Architecture
 
-After successful build, your application structure should look like this:
+---
 
+## Development Skills Applied
+- Flutter & Dart best practices
+- Clean Architecture & Modularization
+- State Management (Bloc)
+- Asynchronous Programming
+- UI/UX Design & Theming
+- RESTful Networking
+- Local & Cloud Data Storage
+
+---
+
+## Mobile Development
+- Cross-platform (Android & iOS)
+- Adaptive layouts with `flutter_screenutil`
+- Native splash screens
+- Platform-specific integrations (Firebase, Notifications)
+
+---
+
+## Tools & Methodologies
+- **Version Control:** Git
+- **CI/CD:** GitHub Actions
+- **Testing:** flutter_test, flutter_lints
+- **Error Tracking:** Sentry
+- **Localization:** flutter_gen, intl
+- **Performance:** Flutter DevTools
+
+---
+
+## Technology Stack
+| Layer         | Technology/Package                |
+|--------------|-----------------------------------|
+| UI           | Flutter, flutter_screenutil        |
+| State Mgmt   | flutter_bloc                      |
+| Backend      | Firebase (Auth, Messaging)        |
+| Local DB     | Hive                              |
+| Networking   | http                              |
+| Media        | image_picker, cached_network_image |
+| Notifications| firebase_messaging                |
+| Analytics    | Sentry                            |
+| Localization | intl, flutter_gen                 |
+
+---
+
+## Application Structure
+```mermaid
+graph TD;
+  A[lib/]
+  A1[features/] --> A11[auth/]
+  A1 --> A12[messaging/]
+  A1 --> A13[chat/]
+  A1 --> A14[group/]
+  A1 --> A15[profile/]
+  A1 --> A16[onboarding/]
+  A1 --> A17[story/]
+  A2[core/] --> A21[services/]
+  A2 --> A22[router/]
+  A2 --> A23[widgets/]
+  A2 --> A24[networking/]
+  A2 --> A25[encryption/]
+  A2 --> A26[data_base/]
+  A3[config/]
+  A4[main.dart]
+  A5[chat_app.dart]
 ```
-    ├── android         - Contains the necessary files to run the application on an Android 
-    ├── assets          - Stores all images and fonts used in the application.
-    ├── ios             - Includes the files required to run the application on an iOS platform.
-    ├── lib             - The core folder for writing the majority of the Dart code.
-    ├── main.dart       - The entry point of the application.
-    ├── core
-    │   ├── extensions  - Holds commonly used file extensions for enhanced functionality. 
-    │   ├── encryption  - Provides a static class file for encryption operations.
-    │   ├── helper      - Contains commonly used file imports to assist in development.
-    │   ├── networking  - Includes commonly used imports for networking tasks.
-    │   ├── router      - Manages commonly used imports for routing within the application.
-    │   ├── services    - Handles commonly used imports for various services.
-    │   ├── size        - Contains commonly used imports related to sizing calculations.
-    │   ├── styles      - Includes commonly used imports for consistent styling across the app.
-    │   ├── useCases    - Manages commonly used imports for encapsulating application use cases.
-    │   ├── widgets     - Provides commonly used imports for reusable widgets.
-    │   ├── utils       - Contains utility files for error handling and general purposes.
-    ├── config
-    │   ├── l10n       - Manages localization configurations for multi-language support.
-    │   ├── themes     - Handles theme-related configurations for consistent visual styling.
-    │   ├── app key    - Stores the application key for secure access and authorization.
-    │   ├── app size   - Stores the application size configuration for UI layout and 
-    ├── features       - Contains the application's feature modules for organized development.
-    │   ├─── authentication feature - Manages authentication-related functionality, such as login and 
-    │   ├─── data layer        - Includes methods for data handling, such as API requests and database operations. 
-    │   ├─── domain layer        - Contains methods and logic related to the authentication domain.
-    │   ├─── presentation layer  - Handles the user interface and view logic for authentication screens.
-    │   ├── home feature         - Manages the home feature of the application, displaying main app 
-    └── app.dart                 -The main application file that initializes the app and sets up the entry point.
+
+---
+
+## Technical Architecture
+```mermaid
+graph LR;
+  User-->|UI|FlutterApp
+  FlutterApp-->|State|Bloc
+  Bloc-->|Data|Services
+  Services-->|API|Firebase
+  Services-->|Local|Hive
+  FlutterApp-->|Routing|Router
+  FlutterApp-->|Theme|Theming
+  FlutterApp-->|Localization|L10n
 ```
 
-### Create File Localizations 
-```
-flutter gen-l10n
-```
-### How you can improve code readability?
+---
 
-Resolve the errors and warnings that are shown in the application.
-
-## ⚙ Libraries and tools used
-
-- BLoC - State management
-https://bloclibrary.dev
-- cached_network_image - For storing internet image into cache
-https://pub.dev/packages/cached_network_image
-
-
-### Hive generate models adaptive
-```
-flutter packages pub run build_runner build --delete-conflicting-outputs
-```
-
-## To run Flavor
-### Flavor development 
-```
-flutter run --target lib/main_dev.dart --flavor dev 
-```
-### Flavor production 
-```
-flutter run --target lib/main_prod.dart --flavor prod 
-```
-### for run application in Profile mode with flavor
-```
-flutter run --profile --target lib/main_dev.dart --flavor dev
+## Screen Architecture
+```mermaid
+graph TD;
+  OnboardingScreen --> AuthScreens
+  AuthScreens --> PhoneNumberScreen
+  AuthScreens --> VerifyPhoneNumberScreen
+  AuthScreens --> UserInfoScreen
+  AuthScreens --> ChatScreens
+  ChatScreens --> ChatsView
+  ChatScreens --> ChatsSearchView
+  ChatScreens --> ContactsView
+  ChatScreens --> GroupScreens
+  GroupScreens --> CreateGroupScreen
+  GroupScreens --> SelectionUsersGroupScreen
+  GroupScreens --> DetailsGroupScreen
+  ProfileScreen
 ```
 
-### Create flutter_launcher_icons
-```
-flutter pub run flutter_launcher_icons
-```
+---
 
-### Create Custom Notification Sound  For Android OS
-- run this command in your root project 
-```mkdir -p android/app/src/main/res/raw```
-and add sound file inside folder ```raw``` 
-this name file example ```notification_sound.wav```
+## Packages & Tools Used
+- **State Management:** flutter_bloc
+- **UI:** flutter_screenutil, progress_indicators
+- **Media:** image_picker, cached_network_image, emoji_picker_flutter
+- **Networking:** http, any_link_preview
+- **Localization:** intl, flutter_gen
+- **Notifications:** firebase_messaging
+- **Testing:** flutter_test, flutter_lints
+- **Other:** url_launcher, flutter_linkify, timeago
 
-- if you using flavor run this command in your root project 
-```  mkdir -p android/app/src/<your_flavor_name>/res/raw```
-and add sound file inside folder ```raw``` 
-this name file example ```notification_sound.wav```
+---
 
-### Change Android Channel
-##### Change Default Android Channel
-* When you want change default channelId and default channelName 
-1- go to the path android/app/src/main/res/values/strings.xml
-here you can find default channelId and default channelName
+## Contact & Contribution
+For questions, contributions, or issues, please open an issue or pull request on the repository.
 
-2- When you want change channelId and channelName 
-- go to this path ```lib/core/services/notifications/android_notification_channel.dart```
-and change as you want.# telefay-chat
+---
+
+<p align="center"><b>Made with ❤️ using Flutter</b></p> 
