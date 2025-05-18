@@ -1,6 +1,6 @@
-# <p align="center"><img src="assets/images/gaza.png" alt="Telefay Logo" width="120" style="border-radius: 16px; box-shadow: 0 4px 16px #eee;"/></p>
+<img src="https://firebasestorage.googleapis.com/v0/b/weddinghallbooking-2ba28.appspot.com/o/protiflio_images%2Ftelefay_design.png?alt=media&token=82187a94-674e-49c7-96f8-294ae93a29fb" alt="Telefay Logo"/>
 
-# Telefay Documentation
+# Telefay Chat Application
 
 ---
 
